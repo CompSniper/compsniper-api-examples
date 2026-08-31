@@ -35,6 +35,7 @@ curl --fail-with-body -H "Authorization: Bearer $COMPSNIPER_API_KEY" "https://ap
 | Safe retries and quota handling | [`python/retry_safe.py`](python/retry_safe.py) | [`node/retry-safe.mjs`](node/retry-safe.mjs) |
 | Pagination | [`python/paginate.py`](python/paginate.py) | [`node/paginate.mjs`](node/paginate.mjs) |
 | Card Batch API | [`python/card_batch.py`](python/card_batch.py) | [`node/card-batch.mjs`](node/card-batch.mjs) |
+| Reproduce the 100-product cleaning study | — | [`research/100-product-cleaning-study/collect.mjs`](research/100-product-cleaning-study/collect.mjs) |
 | Copyable shell requests | [`curl/examples.sh`](curl/examples.sh) | — |
 
 Install the only Python dependency:
@@ -86,7 +87,15 @@ The examples demonstrate these common query parameters:
 - `categoryId`
 - `relevance=false` to return raw eBay matches without AI relevance cleanup
 
-See the [complete API reference](https://compsniper.com/docs#scrape) for every filter and response field.
+See the [complete API reference](https://compsniper.com/docs/api-reference) for every filter and response field.
+
+## Original research
+
+The [100-product raw-versus-cleaned sold-comps study](https://compsniper.com/research/ebay-sold-comps-cleaning-study)
+used one fixed US marketplace protocol across five product categories. The complete predeclared product
+list, bounded collector, and analysis script are under
+[`research/100-product-cleaning-study`](research/100-product-cleaning-study). The published report links
+to its aggregate CSV and explains the limitations.
 
 ## Security
 
