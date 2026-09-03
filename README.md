@@ -1,6 +1,6 @@
 # CompSniper API examples
 
-Production-ready Python, Node.js, and cURL examples for retrieving real eBay sold listings with the
+Production-ready Python, TypeScript, Node.js, and cURL examples for retrieving real eBay sold listings with the
 [CompSniper API](https://compsniper.com).
 
 One search can return up to 240 completed sales with sold price, date, condition, shipping, seller, and
@@ -14,6 +14,7 @@ Create a free CompSniper account and copy the key from the dashboard:
 - [Create a free account](https://compsniper.com/signup)
 - [API documentation](https://compsniper.com/docs)
 - [Python tutorial](https://compsniper.com/guides/ebay-sold-listings-api-python)
+- [JavaScript and TypeScript tutorial](https://compsniper.com/guides/ebay-sold-listings-api-javascript)
 
 Copy `.env.example` to `.env`, then replace the placeholder. Never commit a real API key.
 
@@ -29,14 +30,14 @@ curl --fail-with-body -H "Authorization: Bearer $COMPSNIPER_API_KEY" "https://ap
 
 ## Examples
 
-| Example | Python | Node.js |
-| --- | --- | --- |
-| First sold-listings request | [`python/quickstart.py`](python/quickstart.py) | [`node/quickstart.mjs`](node/quickstart.mjs) |
-| Safe retries and quota handling | [`python/retry_safe.py`](python/retry_safe.py) | [`node/retry-safe.mjs`](node/retry-safe.mjs) |
-| Pagination | [`python/paginate.py`](python/paginate.py) | [`node/paginate.mjs`](node/paginate.mjs) |
-| Card Batch API | [`python/card_batch.py`](python/card_batch.py) | [`node/card-batch.mjs`](node/card-batch.mjs) |
-| Reproduce the 100-product cleaning study | — | [`research/100-product-cleaning-study/collect.mjs`](research/100-product-cleaning-study/collect.mjs) |
-| Copyable shell requests | [`curl/examples.sh`](curl/examples.sh) | — |
+| Example | Python | TypeScript | Node.js |
+| --- | --- | --- | --- |
+| First sold-listings request | [`python/quickstart.py`](python/quickstart.py) | [`typescript/quickstart.ts`](typescript/quickstart.ts) | [`node/quickstart.mjs`](node/quickstart.mjs) |
+| Safe retries and quota handling | [`python/retry_safe.py`](python/retry_safe.py) | - | [`node/retry-safe.mjs`](node/retry-safe.mjs) |
+| Pagination | [`python/paginate.py`](python/paginate.py) | - | [`node/paginate.mjs`](node/paginate.mjs) |
+| Card Batch API | [`python/card_batch.py`](python/card_batch.py) | - | [`node/card-batch.mjs`](node/card-batch.mjs) |
+| Reproduce the 100-product cleaning study | - | - | [`research/100-product-cleaning-study/collect.mjs`](research/100-product-cleaning-study/collect.mjs) |
+| Copyable shell requests | [`curl/examples.sh`](curl/examples.sh) | - | - |
 
 Install the only Python dependency:
 
@@ -49,6 +50,12 @@ Node examples use the built-in `fetch` available in Node.js 18 and newer:
 
 ```bash
 node node/quickstart.mjs
+```
+
+Run the TypeScript example with `tsx`:
+
+```bash
+npx --yes tsx typescript/quickstart.ts
 ```
 
 ## Important 429 behavior

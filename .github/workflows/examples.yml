@@ -23,5 +23,7 @@ jobs:
       - name: Check Node.js examples
         run: |
           for file in node/*.mjs; do node --check "$file"; done
+      - name: Type-check TypeScript examples
+        run: npx --yes --package typescript@5.9.3 tsc --noEmit --strict --target ES2022 --module NodeNext --moduleResolution NodeNext typescript/*.ts
       - name: Check shell example
         run: bash -n curl/examples.sh
