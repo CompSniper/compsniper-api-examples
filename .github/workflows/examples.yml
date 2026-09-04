@@ -19,10 +19,13 @@ jobs:
         with:
           node-version: "22"
       - name: Compile Python examples
-        run: python -m py_compile python/*.py
+        run: |
+          python -m py_compile python/*.py
+          find marketplaces -name '*.py' -print0 | xargs -0 python -m py_compile
       - name: Check Node.js examples
         run: |
           for file in node/*.mjs; do node --check "$file"; done
+          find marketplaces -name '*.mjs' -print0 | xargs -0 -n1 node --check
       - name: Type-check TypeScript examples
         run: npx --yes --package typescript@5.9.3 tsc --noEmit --strict --target ES2022 --module NodeNext --moduleResolution NodeNext typescript/*.ts
       - name: Check shell example

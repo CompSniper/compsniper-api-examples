@@ -1,11 +1,15 @@
 # CompSniper API examples
 
-Production-ready Python, TypeScript, Node.js, and cURL examples for retrieving real eBay sold listings with the
-[CompSniper API](https://compsniper.com).
+Production-ready Python, TypeScript, Node.js, and cURL examples for retrieving public eBay, Poshmark,
+and Mercari marketplace listings with the [CompSniper API](https://compsniper.com).
 
 One search can return up to 240 completed sales with sold price, date, condition, shipping, seller, and
 a computed price summary. CompSniper supports eight eBay marketplaces and can remove accessories,
 parts, and wrong-model matches before calculating the median.
+
+Dedicated endpoints also return up to 48 Poshmark US sold listings or up to 100 Mercari US sold or
+active listings per page. They use the same CompSniper API key, quota, purchased credits, and retry
+behavior without requiring a Poshmark or Mercari account.
 
 ## Get an API key
 
@@ -36,6 +40,8 @@ curl --fail-with-body -H "Authorization: Bearer $COMPSNIPER_API_KEY" "https://ap
 | Safe retries and quota handling | [`python/retry_safe.py`](python/retry_safe.py) | - | [`node/retry-safe.mjs`](node/retry-safe.mjs) |
 | Pagination | [`python/paginate.py`](python/paginate.py) | - | [`node/paginate.mjs`](node/paginate.mjs) |
 | Card Batch API | [`python/card_batch.py`](python/card_batch.py) | - | [`node/card-batch.mjs`](node/card-batch.mjs) |
+| Poshmark sold listings | [`marketplaces/poshmark/python.py`](marketplaces/poshmark/python.py) | - | [`marketplaces/poshmark/node.mjs`](marketplaces/poshmark/node.mjs) |
+| Mercari sold or active listings | [`marketplaces/mercari/python.py`](marketplaces/mercari/python.py) | - | [`marketplaces/mercari/node.mjs`](marketplaces/mercari/node.mjs) |
 | Reproduce the 100-product cleaning study | - | - | [`research/100-product-cleaning-study/collect.mjs`](research/100-product-cleaning-study/collect.mjs) |
 | Copyable shell requests | [`curl/examples.sh`](curl/examples.sh) | - | - |
 
@@ -96,6 +102,16 @@ The examples demonstrate these common query parameters:
 
 See the [complete API reference](https://compsniper.com/docs/api-reference) for every filter and response field.
 
+## Poshmark and Mercari
+
+- [Poshmark examples and limitations](marketplaces/poshmark)
+- [Mercari examples and limitations](marketplaces/mercari)
+- [Poshmark and Mercari API documentation](https://compsniper.com/docs/marketplaces)
+
+Poshmark sold prices and Mercari prices are public displayed listing values. They may not disclose a
+private offer, bundle allocation, coupon, or transaction adjustment. Mercari public search also does
+not provide a reliable exact sold timestamp.
+
 ## Original research
 
 The [100-product raw-versus-cleaned sold-comps study](https://compsniper.com/research/ebay-sold-comps-cleaning-study)
@@ -113,4 +129,4 @@ mobile apps, public logs, screenshots, or commits. Rotate an exposed key from th
 
 MIT. See [LICENSE](LICENSE).
 
-CompSniper is not affiliated with or endorsed by eBay. eBay is a trademark of eBay Inc.
+CompSniper is independent and is not affiliated with or endorsed by eBay, Poshmark, or Mercari.

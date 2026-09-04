@@ -19,3 +19,9 @@ curl --fail-with-body -H "$auth_header" "https://api.compsniper.com/v1/scrape/ca
 
 # Current plan and quota usage.
 curl --fail-with-body -H "$auth_header" "https://api.compsniper.com/v1/account/usage"
+
+# Poshmark US sold listings.
+curl --fail-with-body -H "$auth_header" "https://api.compsniper.com/v1/poshmark/sold?keyword=louis+vuitton+neverfull&department=women&page=1"
+
+# Mercari US sold listings. Use sold=false for current active listings.
+curl --fail-with-body -H "$auth_header" "https://api.compsniper.com/v1/mercari?keyword=sony+wh-1000xm5&count=25&sold=true"
